@@ -12,7 +12,8 @@ public class LinkedListAssignment {
      */
     static Node head;
     static Node tail;
-    static class Node{
+
+    static class Node {
         int data;
         Node next;
 
@@ -22,17 +23,16 @@ public class LinkedListAssignment {
         }
     }
     /**
-     * @param list = Create linked list for adding nodes
+     * @param list = Create linked list for Appending nodes
      */
-    public static LinkedListAssignment add(LinkedListAssignment list, int data){
+    public static LinkedListAssignment append(LinkedListAssignment list, int data) {
 
         Node new_node = new Node(data);
 
 
         if (list.head == null) {
             list.head = new_node;
-        }
-        else {
+        } else {
 
             new_node.next = head;
             head = new_node;
@@ -44,6 +44,7 @@ public class LinkedListAssignment {
     /**
      * Method used for Printing nodes in LinkedList
      */
+
     public static void printList(LinkedListAssignment list) {
         Node currNode = list.head;
 
@@ -62,16 +63,16 @@ public class LinkedListAssignment {
      * Welcome message for user
      * Method used for adding elements in LinkedList
      */
-    public static void main(String[] args){
+    public static void main(String[] args) {
         System.out.println("Welcome to Linked List Assignment");
         LinkedListAssignment list = new LinkedListAssignment();// UC2
 
 
-        list = add(list, 70);//UC2
-        list = add(list, 30);
-        list = add(list, 56);
+        list = append(list, 70);//UC3
+        list = append(list, 30);
+        list = append(list, 56);
 
         printList(list);
     }
-}
+    }
 
