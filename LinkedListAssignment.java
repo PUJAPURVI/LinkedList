@@ -75,6 +75,20 @@ public class LinkedListAssignment <T>{
         }
     }
 
+    /**
+     * Method used for inserting nodes in LinkedList
+     */
+
+    public T pop() {
+        if (head == null) {
+            return null;
+        } else {
+            T data = (T) head.data;
+            head = head.next;
+            return data;
+        }
+    }
+
 
     /**
      * Welcome message for user
@@ -90,6 +104,8 @@ public class LinkedListAssignment <T>{
         list.append(56);
         list.insert(30);//UC4
 
+        printList(list);
+        list.pop();
         printList(list);
     }
     }
