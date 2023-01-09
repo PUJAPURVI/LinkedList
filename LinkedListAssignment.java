@@ -5,10 +5,15 @@ import java.util.LinkedList;
 /**
  * @ author Puja
  */
-public class LinkedListAssignment <T>{
+public class LinkedListAssignment<T> {
+    /**
+     * Declaring Variables
+     */
+
     static Node head;
     Node tail;
-    static class Node<T>{
+
+    static class Node<T> {
         T data;
         Node next;
 
@@ -17,16 +22,16 @@ public class LinkedListAssignment <T>{
             this.next = null;
         }
     }
+
     /**
-     * @param data  = Create new node for Appending data
+     * @param data = Create new node for Appending data
      */
 
-    public static void append(int data){
+    public static void append(int data) {
         Node new_node = new Node(data);
         if (head == null) {
             head = new_node;
-        }
-        else {
+        } else {
 
             Node last = head;
             while (last.next != null) {
@@ -43,7 +48,7 @@ public class LinkedListAssignment <T>{
      * @param list = Create linked list for Appending nodes
      */
     public static void printList(LinkedListAssignment list) {
-        if(list.head == null){
+        if (list.head == null) {
             System.out.println("LinkedList is empty");
         }
         Node currNode = list.head;
@@ -76,7 +81,7 @@ public class LinkedListAssignment <T>{
     }
 
     /**
-     * Method used for inserting nodes in LinkedList
+     * Method used for Remove node in LinkedList
      */
 
     public T pop() {
@@ -89,24 +94,48 @@ public class LinkedListAssignment <T>{
         }
     }
 
+    /**
+     * Method used for Remove Last node in LinkedList
+     */
+
+    public T popLast() {
+        if (head == null) {
+            return null;
+        } else {
+            Node<T> temp = head;
+            while (temp.next != tail) {
+                tail = temp.next;
+            }
+            T data = (T) tail.data;
+            temp.next = null;
+            tail = temp;
+            return data;
+        }
+    }
+
 
     /**
      * Welcome message for user
      * Method used for creating a new object of LinkListAssignment class
      * Method used for append nodes in LinkedList
+     * for calling insert Method
+     * for calling pop Method
+     * for calling pop last method
      */
     public static void main(String[] args) {
         System.out.println("Welcome to Linked List Assignment");
         LinkedListAssignment list = new LinkedListAssignment();// UC2
 
 
-        list.append( 70);//UC3
+        list.append(70);//UC3
         list.append(56);
         list.insert(30);//UC4
 
         printList(list);
         list.pop();
         printList(list);
+        list.popLast();
+        printList(list);
     }
-    }
+}
 
